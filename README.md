@@ -115,7 +115,7 @@ ModularAbilitySystem/
 
 ---
 
-## 🔄 How to Add New/Custom Abilities
+### 🧩 UML Class Diagram – System Architecture Overview
 
 <img src="Documentation/UML-DIagram.png" alt="UML Diagram" width="400"/>
 

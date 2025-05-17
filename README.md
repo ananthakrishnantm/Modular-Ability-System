@@ -143,6 +143,7 @@ namespace ModularAbilitySystems
         }
     }
 }
+
 ```
 
 ---
@@ -166,15 +167,16 @@ void Update()
         abilities[2].Activate(gameObject);
 }
 
+```
 
-## 🔧 Requirements
+### 🔧 Requirements
 
 - Unity 2021.3 or newer
 - Rigidbody required for projectile prefabs
 
 ---
 
-## 📋 Limitations
+### 📋 Limitations
 
 - Not multiplayer-ready out of the box
 - No built-in UI (cooldowns, health bars, etc.)
@@ -182,13 +184,13 @@ void Update()
 
 ---
 
-## 🔐 License
+### 🔐 License
 
 MIT License
 
 ---
 
-## 🧾 Changelog
+### 🧾 Changelog
 
 ### v1.0.0
 
@@ -203,4 +205,7 @@ MIT License
 ## 📧 Support
 
 For bug reports, feature requests, or help using the package, contact [t.m.ananthakrishnan@gmail.com] or visit the asset page.
+
+```
+
 ```

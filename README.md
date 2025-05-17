@@ -48,6 +48,7 @@ ModularAbilitySystem/
 - 🔥 **Projectile Logic (Fireball)** with runtime damage injection
 - 💙 **Health and Mana Management** components included
 - 🖱️ **Mouse Input Support** – Fire abilities using left-click via `AbilityManager`
+- 🎮 **Flexible Input Support** – Use keyboard, mouse, AI, or UI to activate abilities
 - 📜 Fully documented and easy to extend
 
 ---
@@ -64,6 +65,12 @@ ModularAbilitySystem/
    - Add abilities to the `AbilityManager → Ability Components` list
    - Assign the `Fireball.prefab` to `FireballAbility → fireballPrefab`
 
+## To Setup in a new Scene
+
+1.  Create a new capsule with any name example `player` and attach the `ability manager` from the `./core`
+2.  while the `player` game object is selected attache the abilities ex `DashAbility` to the gameobject also drag it from the gameobject and attach it to the `abilitymanager`
+3.  The first ability is activated with keyboard press `q` and second in `e` and the third with `mouseclick`.
+
 ---
 
 ## 🎯 Usage Guide
@@ -78,16 +85,21 @@ ModularAbilitySystem/
 
 ---
 
-## 🧱 Script Summary
+## 🧱 Classes and Interfaces
 
 ### 🔹 Interfaces
 
 - **`IAbility`** – Base interface for all abilities
-- **`IDamageable`** – Used to apply damage to any compatible GameObject
+
+  - `void Activate(UnityEngine.GameObject user)`
+  - `string AbilityName { get; }`
+
+- **`IDamageable`** – Interface used for any object that needs to recieve damage.
+  - `void Damage(float amount)`
 
 ### 🔹 Core
 
-- **`AbilityManager`** – Manages and activates assigned abilities, including mouse input
+- **`AbilityManager`** – Manages and activates assigned abilities, including keyboard and mouse input
 
 ### 🔹 Abilities
 
@@ -97,38 +109,68 @@ ModularAbilitySystem/
 
 ### 🔹 Components
 
-- **`PlayerHealth`** – Tracks current and max HP
-- **`PlayerMana`** – Tracks and validates mana for ability usage
+- **`PlayerHealth`** – Tracks current and max health.
+- **`PlayerMana`** – Tracks current and max Mana.
 - **`FireballMover`** – Controls projectile movement, damage, and impact
 
 ---
 
-## 🔄 How to Add New Abilities
+## 🔄 How to Add New/Custom Abilities
 
-1. Create a new script in `Scripts/Abilities/`
-2. Inherit from `MonoBehaviour` and implement `IAbility`
-3. Attach it to your player or character GameObject
-4. Add it to the `AbilityManager` list
+![UML Diagram](Documentation/UML%20Diagram.png)
+
+## 🔄 How to Add New/Custom Abilities
+
+1. Add your new ability script to the `Abilities` folder under the same namespace `ModularAbilitySystems`.
+
+2. Update the logic in `AbilityManager` if you want to assign a custom input/controller to trigger the new ability.
+
+3. Once your ability script is ready, attach it to the player GameObject and add it to the `abilityComponents` list in the Inspector by dragging it in.
 
 ```csharp
-public class MyNewAbility : MonoBehaviour, IAbility
-{
-    public string AbilityName => "My Ability";
+namespace ModularAbilitySystems
 
-    public void Activate(GameObject user)
+{
+    public class MyNewAbility : MonoBehaviour, IAbility
+
     {
-        // Custom ability logic
+        public string AbilityName => "Your Ability Name Here";
+
+        public void Activate(GameObject user)
+
+        {
+            // Custom ability logic
+        }
     }
 }
 ```
 
 ---
 
+## 🎮 Custom Input / Controllers
+
+The `AbilityManager` is input-agnostic — you can trigger any ability from UI buttons, AI, or other scripts.
+
+Here’s a sample `Update()` method that handles ability activation via keyboard and mouse:
+
+```csharp
+void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Q) && abilities.Count > 0)
+        abilities[0].Activate(gameObject);
+
+    if (Input.GetKeyDown(KeyCode.E) && abilities.Count > 1)
+        abilities[1].Activate(gameObject);
+
+    if (Input.GetMouseButtonDown(0) && abilities.Count > 2)
+        abilities[2].Activate(gameObject);
+}
+
+
 ## 🔧 Requirements
 
 - Unity 2021.3 or newer
 - Rigidbody required for projectile prefabs
-- Demo scene uses Unity’s built-in Input System
 
 ---
 
@@ -160,4 +202,5 @@ MIT License
 
 ## 📧 Support
 
-For bug reports, feature requests, or help using the package, contact [your-email@example.com] or visit the asset page.
+For bug reports, feature requests, or help using the package, contact [t.m.ananthakrishnan@gmail.com] or visit the asset page.
+```

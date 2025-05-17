@@ -117,7 +117,7 @@ ModularAbilitySystem/
 
 ## 🔄 How to Add New/Custom Abilities
 
-![UML Diagram](Documentation/UML%20Diagram.png)
+[UML Diagram](Documentation/UML%20DIagram.png/20%)
 
 ## 🔄 How to Add New/Custom Abilities
 

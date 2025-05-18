@@ -71,6 +71,10 @@ ModularAbilitySystem/
 2.  while the `player` game object is selected attache the abilities ex `DashAbility` to the gameobject also drag it from the gameobject and attach it to the `abilitymanager`
 3.  The first ability is activated with keyboard press `q` and second in `e` and the third with `mouseclick`.
 
+### 🧩 Setup Inspector Diagram
+
+<img src="Documentation/Picture1.png" alt="Inspector Diagram" width="400"/>
+
 ---
 
 ## 🎯 Usage Guide

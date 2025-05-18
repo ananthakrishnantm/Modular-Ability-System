@@ -10,7 +10,7 @@ The **Modular Ability System** is a flexible and extensible Unity package for ad
 
 ## Demo
 
-## <img src="Documentation/Demo.gif" alt="DemoDiagram width="400/>
+<img src="Documentation/Demo.gif" alt="DemoDiagram width="400/>
 
 ## 📁 Folder Structure
 

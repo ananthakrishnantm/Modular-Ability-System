@@ -217,5 +217,5 @@ MIT License
 For bug reports, feature requests, or help using the package, contact [t.m.ananthakrishnan@gmail.com] or visit the asset page.
 
 ```
-waiting for approval
+waiting for unity asste approval
 ```
